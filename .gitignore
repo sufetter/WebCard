@@ -1,0 +1,70 @@
+# compiled output
+/server/webcard/dist
+/server/webcard/node_modules
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+
+# Tests
+/server/webcard/coverage
+/server/webcard/.nyc_output
+
+# IDEs and editors
+/server/webcard/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+
+# dependencies
+/client/cw/node_modules
+/client/cw/.pnp
+.pnp.js
+
+# testing
+/client/cw/coverage
+
+# next.js
+/client/cw/.next/
+/client/cw/out/
+
+# production
+/client/cw/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
