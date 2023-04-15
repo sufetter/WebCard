@@ -1,0 +1,2 @@
+# WebCard
+My course project on databases. The key goal was to develop a database according to certain standards and integrate it into the application. In particular, it was impossible to use any ORM and it was necessary to work directly with the database and many more nuances. There was very little time for everything, so the project most likely has flaws and / or conventions. This is an alpha version as a pet project, after passing the term paper, I plan to redo everything here in a human way and put it in public access as a good project.
