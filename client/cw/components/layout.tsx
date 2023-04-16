@@ -17,6 +17,7 @@ export default function Layout({children}: LayoutProps) {
   //   console.log(res);
   // };
   // a();
+
   return (
     <>
       <Head>
@@ -27,28 +28,27 @@ export default function Layout({children}: LayoutProps) {
       <main>
         <VStack
           direction="column"
-          h="100%"
+          // h="100%"
           w="100%"
-          align="stretch"
           color="white"
-          maxHeight="100vh"
-          overflow="hidden"
+          // maxHeight="100vh"
         >
-          <Flex
-            direction="row"
-            w="100%"
-            h="100%"
-            flex={1}
-            mt="0px !important"
-            overflow="hidden"
-          >
+          <Flex direction="row" w="100%" mt="0px !important">
             <Navbar />
-            <VStack flex={1} bg="#0E1015" h="4000px" overflow="hidden">
-              <Header />
-              <Flex flex={1} w="100%" mt="0px !important" overflow="scroll">
-                {children}
+
+            <VStack bg="#0E1015" maxH="100vh" flex={1}>
+              <Flex
+                direction="column"
+                mt="0px !important"
+                h="3000px"
+                overflowY="auto"
+              >
+                <Header />
+                <Flex mt="0px !important" flex={1}>
+                  {children}
+                </Flex>
+                <Footer />
               </Flex>
-              <Footer />
             </VStack>
 
             <Sidebar />

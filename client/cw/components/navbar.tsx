@@ -17,7 +17,6 @@ export const NavItem = ({src, desc, section}: NavItemProps) => {
   const handleNavigation = () => {
     router.push("/" + section);
   };
-  console.log(typeof src);
   return (
     <Flex
       w="100%"
