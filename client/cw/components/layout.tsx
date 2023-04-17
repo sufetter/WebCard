@@ -8,9 +8,10 @@ import Navbar from "./navbar";
 
 type LayoutProps = {
   children: JSX.Element;
+  headerType?: string;
 };
 
-export default function Layout({children}: LayoutProps) {
+export default function Layout({children, headerType = "main"}: LayoutProps) {
   // const a = async () => {
   //   const api = await fetch("/api/hello");
   //   const res = await api.json();
@@ -43,7 +44,7 @@ export default function Layout({children}: LayoutProps) {
                 h="3000px"
                 overflowY="auto"
               >
-                <Header />
+                <Header headerType={headerType} />
                 <Flex mt="0px !important" flex={1}>
                   {children}
                 </Flex>

@@ -62,7 +62,7 @@ const Navbar = () => {
     // >
     <Flex
       h="100vh"
-      w={240 + "px"}
+      minW={240 + "px"}
       bg="#101318"
       border="1px solid"
       borderColor="#16181D"

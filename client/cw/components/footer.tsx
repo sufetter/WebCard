@@ -4,7 +4,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <Flex minH="396px" minW="1608px" bg="#13151B" justify="center">
+    <Flex minH="396px" w="100%" bg="#13151B" justify="center">
       <Flex w="1000px" direction="column" flex={1}>
         <Flex w="100%" justify="space-between">
           <Flex direction="column">
