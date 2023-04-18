@@ -1,7 +1,8 @@
 import {ButtonDef} from "@/pages";
-import {Flex, Box} from "@chakra-ui/react";
+import {Flex, Box, Icon} from "@chakra-ui/react";
 import sectionBg from "../images/getInTouch_section.png";
 import React from "react";
+import {HiOutlineCloudDownload} from "react-icons/hi";
 
 const GetInTouch = () => {
   return (
@@ -16,17 +17,22 @@ const GetInTouch = () => {
       justify="center"
     >
       <Flex fontSize="28px" fontWeight="700">
-        Your personal gaming coach
+        Your favorite gaming platform
       </Flex>
-      <Flex maxW="450px" color="#999CA3" textAlign="justify" my="20px">
-        Blitz simplifies the process of mastering difficult games, helping you
-        improve at every step of your journey to the top.
+      <Flex maxW="470px" color="#999CA3" textAlign="center" my="20px">
+        Worzell provides a wide range of games with the integration of
+        cryptocurrency, NFT and smart contracts. Play wherever you want.
       </Flex>
       <Flex gap="7px" mt="10px">
         <ButtonDef
-          styles={{minW: "150px", bg: "#DD364D", _hover: {bg: "#E5596C"}}}
+          styles={{
+            minW: "150px",
+            bg: "#DD364D",
+            _hover: {bg: "#E5596C"},
+            px: "0px",
+          }}
         >
-          <Box> Download Blitz</Box>
+          <Flex align="center">Get Worzell</Flex>
         </ButtonDef>
         <ButtonDef
           styles={{

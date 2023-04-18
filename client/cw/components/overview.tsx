@@ -13,8 +13,9 @@ const overviewColors = {
   mainButtonHover: "#E5596C",
   secondButtonHover: "#3C3F47",
   mainText: "#fff",
+  secondTextColor: "#999CA3",
   mainEventItem: "#13151B",
-  eventItemButtonHover: "#646E80",
+  eventItemButtonHover: "#454A54",
 };
 
 const EventItem = () => {
@@ -37,7 +38,14 @@ const Overview = () => {
         px="20px"
         py="10px"
       >
-        <Flex pb="10px">Main info</Flex>
+        <Flex
+          pb="10px"
+          fontSize="14px"
+          color={overviewColors.secondTextColor}
+          fontWeight="700"
+        >
+          Main info
+        </Flex>
         <Flex w="316px" h="182px" bg="white" borderRadius={8}></Flex>
         <Flex maxW="316px" textAlign="justify" py="10px">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem
@@ -68,7 +76,7 @@ const Overview = () => {
               styles={{
                 bg: `${overviewColors.secondButton}`,
                 color: `${overviewColors.mainText}`,
-                _hover: {bg: `${overviewColors.secondButtonHover + 500}`},
+                _hover: {bg: `${overviewColors.secondButtonHover}`},
               }}
             >
               <Box>Pl</Box>
@@ -77,8 +85,14 @@ const Overview = () => {
         </Flex>
       </Flex>
       <Flex direction="column" px="20px" py="10px" w="100%">
-        <Flex w="100%" justify="space-between" pb="10px" h="34px">
-          <Flex>Last events</Flex>
+        <Flex w="100%" justify="space-between" pb="10px" h="31px">
+          <Flex
+            fontSize="14px"
+            color={overviewColors.secondTextColor}
+            fontWeight="700"
+          >
+            Last events
+          </Flex>
           <Flex gap="1px">
             <ButtonDef
               styles={{
@@ -89,7 +103,7 @@ const Overview = () => {
                 _hover: {bg: `${overviewColors.eventItemButtonHover}`},
               }}
             >
-              <Box>Updates</Box>
+              <Box fontSize="14px">Updates</Box>
             </ButtonDef>
             <ButtonDef
               styles={{
@@ -100,7 +114,9 @@ const Overview = () => {
                 _hover: {bg: `${overviewColors.eventItemButtonHover}`},
               }}
             >
-              <Box>News</Box>
+              <Box fontSize="14px" color={overviewColors.secondTextColor}>
+                News
+              </Box>
             </ButtonDef>
           </Flex>
         </Flex>
