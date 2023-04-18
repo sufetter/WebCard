@@ -37,13 +37,8 @@ export default function Layout({children, headerType = "main"}: LayoutProps) {
           <Flex direction="row" w="100%" mt="0px !important">
             <Navbar />
 
-            <VStack bg="#0E1015" maxH="100vh" flex={1}>
-              <Flex
-                direction="column"
-                mt="0px !important"
-                h="3000px"
-                overflowY="auto"
-              >
+            <VStack bg="#0E1015" maxH="100vh" flex={1} overflowY="auto">
+              <Flex direction="column" mt="0px !important" h="3000px">
                 <Header headerType={headerType} />
                 <Flex mt="0px !important" flex={1}>
                   {children}

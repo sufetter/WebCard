@@ -1,13 +1,16 @@
 import React from "react";
 import Layout from "../../../components/layout";
 import {Flex, Box} from "@chakra-ui/react";
+import Overview from "../../../components/overview";
+import Games from "../../../components/games";
+import GetInTouch from "../../../components/getInTouch";
 
 const Game = () => {
   return (
     <>
       <main>
         <Layout headerType="lkkl">
-          <Flex flex={1} w="100%" h="100%">
+          <Flex flex={1} w="100%" h="100%" direction="column" overflowY="auto">
             <Flex h="266px" bg="red" w="100%" direction="column">
               <Flex gap="7px">
                 <Flex>adad</Flex>
@@ -27,6 +30,9 @@ const Game = () => {
                 </Flex>
               </Flex>
             </Flex>
+            <Overview />
+            <Games />
+            <GetInTouch />
           </Flex>
         </Layout>
       </main>
