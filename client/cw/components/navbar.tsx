@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import {Box, VStack, Flex, Icon} from "@chakra-ui/react";
 import Image from "next/image";
-import * as logo from "./../images/logo.svg";
-import * as games from "./../images/games_section.svg";
+import logo from "./../images/logo.svg";
+import games from "./../images/games_section.svg";
 import {useRouter} from "next/router";
 import {motion, Variants} from "framer-motion";
 

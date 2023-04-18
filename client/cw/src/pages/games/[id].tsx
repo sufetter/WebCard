@@ -2,6 +2,9 @@ import React, {useRef} from "react";
 import Layout from "../../../components/layout";
 import {Flex, Box} from "@chakra-ui/react";
 import OverviewSection from "../../../components/overviewSection";
+import Overview from "../../../components/overview";
+import Games from "../../../components/games";
+import GetInTouch from "../../../components/getInTouch";
 
 const Game = () => {
   const linksBox = useRef<HTMLInputElement>(null);
@@ -17,14 +20,8 @@ const Game = () => {
     <>
       <main>
         <Layout headerType="lkkl">
-          <Flex flex={1} w="100%" h="100%" direction="column">
-            <Flex
-              h="266px"
-              bg="red"
-              w="100%"
-              direction="column"
-              justify="flex-end"
-            >
+          <Flex flex={1} w="100%" h="100%" direction="column" overflowY="auto">
+            <Flex h="266px" bg="red" w="100%" direction="column">
               <Flex gap="7px">
                 <Flex>adad</Flex>
                 <Flex>dada</Flex>
@@ -54,7 +51,9 @@ const Game = () => {
                 </Flex>
               </Flex>
             </Flex>
-            <OverviewSection />
+            <Overview />
+            <Games />
+            <GetInTouch />
           </Flex>
         </Layout>
       </main>

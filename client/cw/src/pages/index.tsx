@@ -4,6 +4,8 @@ import Image from "next/image";
 import Layout from "../../components/layout";
 import Tilt from "react-parallax-tilt";
 import {useRouter} from "next/router";
+import Games from "../../components/games";
+import GetInTouch from "../../components/getInTouch";
 
 interface CardProps {
   styles?: object;
@@ -51,7 +53,8 @@ export const ButtonDef = ({styles, children, section = "/"}: ButtonProps) => {
   return (
     <Button
       // variant="unstyled"
-      color="black"
+      color="white"
+      bg="gray"
       {...styles}
       onClick={() => handleNavigation(section)}
     >
@@ -78,19 +81,7 @@ export default function Home() {
         <Layout>
           <Flex direction="column" align="center" flex={1}>
             <Flex direction="column" w="1000px">
-              <Flex
-                w="100%"
-                h="250px"
-                justify="space-between"
-                mt="48px"
-                mb="62px"
-              >
-                <Card desc="Example" />
-                <Card desc="Example" />
-                <Card desc="Example" />
-                <Card desc="Example" />
-                <Card desc="Example" />
-              </Flex>
+              <Games />
               <Flex direction="column">
                 <Flex>fsfs</Flex>
                 <Flex justify="space-between" flexWrap="wrap" mb="72px">
@@ -103,26 +94,7 @@ export default function Home() {
                 </Flex>
               </Flex>
             </Flex>
-            <Flex
-              direction="column"
-              w="1608px"
-              minH="420px"
-              flex={1}
-              bg="red"
-              align="center"
-              justify="center"
-            >
-              <Flex>fsfs</Flex>
-              <Flex>fsfs</Flex>
-              <Flex gap="10px">
-                <ButtonDef>
-                  <Box>ggsgs</Box>
-                </ButtonDef>
-                <ButtonDef>
-                  <Box>ggsgs</Box>
-                </ButtonDef>
-              </Flex>
-            </Flex>
+            <GetInTouch />
           </Flex>
         </Layout>
       </main>
