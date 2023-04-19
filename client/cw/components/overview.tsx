@@ -2,28 +2,14 @@ import {ButtonDef} from "@/pages";
 import {Flex, Box, VStack} from "@chakra-ui/react";
 import React from "react";
 import sectionBg from "../images/getInTouch_section.png";
-
-const overviewColors = {
-  mainBg: "#181A20",
-  leftSectionBg: "#13151B",
-  mainButton: "#DD364D",
-  secondButton: "#262933",
-  mainEventButton: "#353940",
-  secondEventButton: "#272A30",
-  mainButtonHover: "#E5596C",
-  secondButtonHover: "#3C3F47",
-  mainText: "#fff",
-  secondTextColor: "#999CA3",
-  mainEventItem: "#13151B",
-  eventItemButtonHover: "#454A54",
-};
+import {sharedColors} from "./layout";
 
 const EventItem = () => {
   return (
     <Flex
       w="100%"
       h="94px"
-      bg={overviewColors.mainEventItem}
+      bg={sharedColors.mainEventItem}
       borderRadius={5}
     ></Flex>
   );
@@ -31,17 +17,17 @@ const EventItem = () => {
 
 const Overview = () => {
   return (
-    <Flex w="100%" bg={overviewColors.mainBg} h="356px">
+    <Flex w="100%" bg={sharedColors.mainBg} h="356px">
       <Flex
         direction="column"
-        bg={overviewColors.leftSectionBg}
+        bg={sharedColors.leftSectionBg}
         px="20px"
         py="10px"
       >
         <Flex
           pb="10px"
           fontSize="14px"
-          color={overviewColors.secondTextColor}
+          color={sharedColors.secondText}
           fontWeight="700"
         >
           Main info
@@ -55,9 +41,9 @@ const Overview = () => {
           <ButtonDef
             styles={{
               w: "70%",
-              bg: `${overviewColors.mainButton}`,
-              color: `${overviewColors.mainText}`,
-              _hover: {bg: `${overviewColors.mainButtonHover}`},
+              bg: sharedColors.mainButton,
+              color: sharedColors.mainText,
+              _hover: {bg: sharedColors.mainButtonHover},
             }}
           >
             <Box>Play</Box>
@@ -65,18 +51,18 @@ const Overview = () => {
           <Flex w="20%" gap="5px">
             <ButtonDef
               styles={{
-                bg: `${overviewColors.secondButton}`,
-                color: `${overviewColors.mainText}`,
-                _hover: {bg: `${overviewColors.secondButtonHover}`},
+                bg: sharedColors.secondButton,
+                color: sharedColors.mainText,
+                _hover: {bg: sharedColors.secondButtonHover},
               }}
             >
               <Box>Pl</Box>
             </ButtonDef>
             <ButtonDef
               styles={{
-                bg: `${overviewColors.secondButton}`,
-                color: `${overviewColors.mainText}`,
-                _hover: {bg: `${overviewColors.secondButtonHover}`},
+                bg: sharedColors.secondButton,
+                color: sharedColors.mainText,
+                _hover: {bg: sharedColors.secondButtonHover},
               }}
             >
               <Box>Pl</Box>
@@ -88,19 +74,19 @@ const Overview = () => {
         <Flex w="100%" justify="space-between" pb="10px" h="31px">
           <Flex
             fontSize="14px"
-            color={overviewColors.secondTextColor}
+            color={sharedColors.secondText}
             fontWeight="700"
           >
             Last events
           </Flex>
-          <Flex gap="1px">
+          <Flex gap="1px" align="center">
             <ButtonDef
               styles={{
                 h: "26px",
                 w: "100px",
                 borderRadius: "5px 0 0 5px",
-                bg: `${overviewColors.mainEventButton}`,
-                _hover: {bg: `${overviewColors.eventItemButtonHover}`},
+                bg: sharedColors.mainEventButton,
+                _hover: {bg: sharedColors.eventItemButtonHover},
               }}
             >
               <Box fontSize="14px">Updates</Box>
@@ -110,11 +96,11 @@ const Overview = () => {
                 h: "26px",
                 w: "100px",
                 borderRadius: "0 5px 5px 0",
-                bg: `${overviewColors.secondEventButton}`,
-                _hover: {bg: `${overviewColors.eventItemButtonHover}`},
+                bg: sharedColors.secondEventButton,
+                _hover: {bg: sharedColors.eventItemButtonHover},
               }}
             >
-              <Box fontSize="14px" color={overviewColors.secondTextColor}>
+              <Box fontSize="14px" color={sharedColors.secondText}>
                 News
               </Box>
             </ButtonDef>

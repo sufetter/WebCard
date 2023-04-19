@@ -55,6 +55,7 @@ export const ButtonDef = ({styles, children, section = "/"}: ButtonProps) => {
       // variant="unstyled"
       color="white"
       bg="gray"
+      alignContent="center"
       {...styles}
       onClick={() => handleNavigation(section)}
     >

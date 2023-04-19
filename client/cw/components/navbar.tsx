@@ -86,7 +86,6 @@ const Navbar = () => {
               fontSize="18px"
               fontWeight="700"
               letterSpacing="0.15em"
-              sx={{fontStretch: "ultra-condensed"}}
             >
               SINTER
             </Flex>

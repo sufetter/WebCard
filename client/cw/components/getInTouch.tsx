@@ -3,6 +3,7 @@ import {Flex, Box, Icon} from "@chakra-ui/react";
 import sectionBg from "../images/getInTouch_section.png";
 import React from "react";
 import {HiOutlineCloudDownload} from "react-icons/hi";
+import {sharedColors} from "./layout";
 
 const GetInTouch = () => {
   return (
@@ -27,7 +28,7 @@ const GetInTouch = () => {
         <ButtonDef
           styles={{
             minW: "150px",
-            bg: "#DD364D",
+            bg: sharedColors.mainButton,
             _hover: {bg: "#E5596C"},
             px: "0px",
           }}
@@ -38,7 +39,7 @@ const GetInTouch = () => {
           styles={{
             minW: "150px",
             bg: "#272A30",
-            color: "#999CA3",
+            color: sharedColors.secondText,
             _hover: {bg: "#3C3F47"},
           }}
         >

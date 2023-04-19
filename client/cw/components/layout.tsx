@@ -6,6 +6,21 @@ import Footer from "./footer";
 import Sidebar from "./sidebar";
 import Navbar from "./navbar";
 
+export const sharedColors = {
+  mainBg: "#181A20",
+  leftSectionBg: "#13151B",
+  mainButton: "#DD364D",
+  secondButton: "#262933",
+  mainEventButton: "#353940",
+  secondEventButton: "#272A30",
+  mainButtonHover: "#E5596C",
+  secondButtonHover: "#3C3F47",
+  mainText: "#E2E4E9",
+  secondText: "#999CA3",
+  mainEventItem: "#13151B",
+  eventItemButtonHover: "#454A54",
+};
+
 type LayoutProps = {
   children: JSX.Element;
   headerType?: string;
