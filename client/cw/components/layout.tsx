@@ -17,6 +17,7 @@ export const sharedColors = {
   secondButtonHover: "#3C3F47",
   mainText: "#E2E4E9",
   secondText: "#999CA3",
+  navbarText: "#7E828B",
   mainEventItem: "#13151B",
   eventItemButtonHover: "#454A54",
 };
@@ -49,7 +50,13 @@ export default function Layout({children, headerType = "main"}: LayoutProps) {
           color="white"
           // maxHeight="100vh"
         >
-          <Flex direction="row" w="100%" mt="0px !important">
+          <Flex
+            direction="row"
+            w="100%"
+            mt="0px !important"
+            maxW="100vw"
+            overflowX="hidden"
+          >
             <Navbar />
 
             <VStack bg="#0E1015" maxH="100vh" flex={1} overflowY="auto">

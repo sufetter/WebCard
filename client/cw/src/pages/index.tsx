@@ -79,7 +79,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Layout>
+        <Layout headerType="main">
           <Flex direction="column" align="center" flex={1}>
             <Flex direction="column" w="1000px">
               <Games />

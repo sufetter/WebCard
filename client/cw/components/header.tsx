@@ -4,7 +4,7 @@ import Search from "./search";
 import {useMainStore} from "../store/shared/sharedStore";
 import {shallow} from "zustand/shallow";
 
-const Header = ({headerStandart}: any) => {
+const Header = ({headerType}: any) => {
   // const [scrollPosition, updateScrollPosition] = useMainStore(
   //   (state: any) => [state.PageYOffset, state.setPageYOffset],
   //   shallow
@@ -25,7 +25,7 @@ const Header = ({headerStandart}: any) => {
 
   return (
     <>
-      {headerStandart == "main" && (
+      {headerType == "main" && (
         <Flex
           h="168px"
           align="end"
