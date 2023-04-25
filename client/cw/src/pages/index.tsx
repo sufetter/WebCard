@@ -45,7 +45,7 @@ interface ButtonProps {
   section?: string;
 }
 
-export const ButtonDef = ({styles, children, section = "/"}: ButtonProps) => {
+export const ButtonDef = ({styles, children, section = ""}: ButtonProps) => {
   const router = useRouter();
   const handleNavigation = (path: string) => {
     router.push("/" + path);

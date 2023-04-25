@@ -1,9 +1,10 @@
 import {Flex, Box} from "@chakra-ui/react";
-import React from "react";
+import React, {ReactElement, ReactNode} from "react";
 import {sharedColors} from "./layout";
 import {ButtonDef} from "@/pages";
 import Image from "next/image";
 import roomsBg from "../images/roomsBg.png";
+import ethereum from "../images/ethereumIcon.svg.png";
 
 type user = {
   id: number;
@@ -22,6 +23,19 @@ interface RoomProps {
 }
 
 const Room = ({name, users, game}: RoomProps) => {
+  const usersRender = (): ReactNode => {
+    return users.map(({id, icon}: user) => {
+      if (id && icon) {
+        return (
+          <Flex key={id} border="0px solid" borderRadius="6px">
+            {icon != undefined && (
+              <Image width="30" height="30" alt={id + ""} src={icon} />
+            )}
+          </Flex>
+        );
+      } else return;
+    });
+  };
   return (
     <Flex w="100%" minH="30px" align="center" justify="space-between">
       <Flex
@@ -29,39 +43,24 @@ const Room = ({name, users, game}: RoomProps) => {
         fontSize="16px"
         color={sharedColors.mainText}
         className=".Inter"
+        w="100%"
       >
         {name}
       </Flex>
 
-      {users != undefined && game != undefined && (
-        <Flex>
-          <Flex>
-            {users != undefined &&
-              users.map(({user}: any) => {
-                console.log(user);
-                return (
-                  <Flex key={user?.id} border="0px solid" borderRadius="6px">
-                    {user?.icon != undefined && (
-                      <Image
-                        width="30"
-                        height="30"
-                        alt={user.id}
-                        src={user.icon}
-                      />
-                    )}
-                  </Flex>
-                );
-              })}
+      <Flex justify="space-between" w="100%">
+        <Flex gap="5px">{usersRender()}</Flex>
+        <Flex gap="3px" align="center">
+          <Flex borderRadius="6px">
+            <Image width="30" height="30" alt={""} src={game.value.icon} />
           </Flex>
-          <Flex>
-            <Flex borderRadius="6px">
-              <Image width="30" height="30" alt={""} src={game.value.icon} />
-            </Flex>
-            <Flex>{game.bet}</Flex>
+          <Flex color={sharedColors.secondText} fontWeight="600">
+            {game.bet}
           </Flex>
         </Flex>
-      )}
-      <Flex>
+      </Flex>
+
+      <Flex w="100%" justify="flex-end">
         <ButtonDef
           styles={{
             w: "60px",
@@ -80,16 +79,17 @@ const Room = ({name, users, game}: RoomProps) => {
 
 const Rooms = () => {
   return (
-    <Flex w="100%" h="382px" bg={sharedColors.mainBg} justify="space-between">
-      <Flex direction="column" flex={1}>
+    <Flex
+      w="100%"
+      h="382px"
+      bg={sharedColors.mainBg}
+      justify="space-between"
+      borderBottom="1px solid"
+      borderColor={sharedColors.roomsHeaderBorder}
+    >
+      <Flex direction="column" flex={1} h="100%">
         <Flex>
-          <Flex
-            w="100%"
-            h="42px"
-            bg={sharedColors.overviewHeaderBg}
-            borderBottom="1px solid"
-            borderColor={sharedColors.roomsHeaderBorder}
-          >
+          <Flex w="100%" h="42px" bg={sharedColors.overviewHeaderBg}>
             <Flex px="20px" w="100%" justify="space-between" align="center">
               <Flex
                 fontSize="14px"
@@ -135,11 +135,17 @@ const Rooms = () => {
           overflowY="auto"
           direction="column"
           gap="15px"
+          maxH="310px"
+          h="100%"
+          borderRadius="6px"
         >
           <Room
             name="Aboba"
-            users={[{id: 1, icon: roomsBg.src}]}
-            game={{bet: 1, value: {icon: roomsBg.src}}}
+            users={[
+              {id: 1, icon: roomsBg.src},
+              {id: 2, icon: roomsBg.src},
+            ]}
+            game={{bet: 0.5, value: {icon: ethereum.src}}}
           />
         </Flex>
       </Flex>
