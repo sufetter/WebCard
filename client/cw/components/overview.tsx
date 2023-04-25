@@ -70,43 +70,49 @@ const Overview = () => {
           </Flex>
         </Flex>
       </Flex>
-      <Flex direction="column" px="20px" py="10px" w="100%">
-        <Flex w="100%" justify="space-between" pb="10px" h="31px">
-          <Flex
-            fontSize="14px"
-            color={sharedColors.secondText}
-            fontWeight="700"
-          >
-            Last events
-          </Flex>
-          <Flex gap="1px" align="center">
-            <ButtonDef
-              styles={{
-                h: "26px",
-                w: "100px",
-                borderRadius: "5px 0 0 5px",
-                bg: sharedColors.mainEventButton,
-                _hover: {bg: sharedColors.eventItemButtonHover},
-              }}
+      <Flex direction="column" w="100%" py="10px">
+        <Flex
+          bg={sharedColors.overviewHeaderBg}
+          border="1px solid"
+          borderColor={sharedColors.overviewHeaderBorder}
+        >
+          <Flex w="100%" justify="space-between" pb="10px" h="31px" px="20px">
+            <Flex
+              fontSize="14px"
+              color={sharedColors.secondText}
+              fontWeight="700"
             >
-              <Box fontSize="14px">Updates</Box>
-            </ButtonDef>
-            <ButtonDef
-              styles={{
-                h: "26px",
-                w: "100px",
-                borderRadius: "0 5px 5px 0",
-                bg: sharedColors.secondEventButton,
-                _hover: {bg: sharedColors.eventItemButtonHover},
-              }}
-            >
-              <Box fontSize="14px" color={sharedColors.secondText}>
-                News
-              </Box>
-            </ButtonDef>
+              Last events
+            </Flex>
+            <Flex gap="1px" align="center">
+              <ButtonDef
+                styles={{
+                  h: "26px",
+                  w: "100px",
+                  borderRadius: "5px 0 0 5px",
+                  bg: sharedColors.mainEventButton,
+                  _hover: {bg: sharedColors.eventItemButtonHover},
+                }}
+              >
+                <Box fontSize="14px">Updates</Box>
+              </ButtonDef>
+              <ButtonDef
+                styles={{
+                  h: "26px",
+                  w: "100px",
+                  borderRadius: "0 5px 5px 0",
+                  bg: sharedColors.secondEventButton,
+                  _hover: {bg: sharedColors.eventItemButtonHover},
+                }}
+              >
+                <Box fontSize="14px" color={sharedColors.secondText}>
+                  News
+                </Box>
+              </ButtonDef>
+            </Flex>
           </Flex>
         </Flex>
-        <VStack>
+        <VStack px="20px" h="100%" justifyContent="space-between" pb="2px">
           <EventItem />
           <EventItem />
           <EventItem />

@@ -1,6 +1,6 @@
 import {ButtonDef} from "@/pages";
 import {Flex, Box} from "@chakra-ui/react";
-import React from "react";
+import React, {memo} from "react";
 import {sharedColors} from "./layout";
 import logo from "../images/logo.svg";
 import Image from "next/image";
@@ -8,7 +8,7 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <Flex minH="396px" w="100%" bg="#13151B" justify="center">
-      <Flex w="1000px" direction="column" flex={1} py="64px">
+      <Flex direction="column" flex={1} py="64px" w="100%">
         <Flex w="100%" justify="space-between">
           <Flex direction="column" w="250px" gap="40px">
             <Flex align="center" gap="8px">
@@ -216,4 +216,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default memo(Footer);

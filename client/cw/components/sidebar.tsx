@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, memo} from "react";
 import {Box, VStack, Flex} from "@chakra-ui/react";
 import {useMainStore} from "../store/shared/sharedStore";
 import {shallow} from "zustand/shallow";
@@ -20,4 +20,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default memo(Sidebar);

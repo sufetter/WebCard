@@ -3,8 +3,8 @@ import Sidebar from "../../components/sidebar";
 
 export const useMainStore = create((set) => ({
   PageYOffset: 0,
-  setPageYOffset: (PageYOffset: any) => {
-    set(() => ({PageYOffset: PageYOffset}));
+  setPageYOffset: (state: any) => {
+    set(() => ({PageYOffset: state}));
   },
   SidebarOpen: false,
   setSidebarOpen: () => {

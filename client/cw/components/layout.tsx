@@ -5,6 +5,9 @@ import Header from "./header";
 import Footer from "./footer";
 import Sidebar from "./sidebar";
 import Navbar from "./navbar";
+import {useMainStore} from "../store/shared/sharedStore";
+import {shallow} from "zustand/shallow";
+import React, {useRef} from "react";
 
 export const sharedColors = {
   mainBg: "#181A20",
@@ -20,6 +23,11 @@ export const sharedColors = {
   navbarText: "#7E828B",
   mainEventItem: "#13151B",
   eventItemButtonHover: "#454A54",
+  overviewHeaderBg: "#16191E",
+  overviewHeaderBorder: "",
+  roomsHeaderBg: "#16191E",
+  roomsHeaderBorder: "#1E2026",
+  roomsMainBg: "#22272F",
 };
 
 type LayoutProps = {
@@ -34,7 +42,7 @@ export default function Layout({children, headerType = "main"}: LayoutProps) {
   //   console.log(res);
   // };
   // a();
-
+  const mainSection = useRef(null);
   return (
     <>
       <Head>
@@ -59,9 +67,15 @@ export default function Layout({children, headerType = "main"}: LayoutProps) {
           >
             <Navbar />
 
-            <VStack bg="#0E1015" maxH="100vh" flex={1} overflowY="auto">
-              <Flex direction="column" mt="0px !important" h="3000px">
-                <Header headerType={headerType} />
+            <VStack
+              bg="#0E1015"
+              maxH="100vh"
+              flex={1}
+              overflowY="auto"
+              ref={mainSection}
+            >
+              <Flex direction="column" mt="0px !important" flex={1}>
+                <Header headerType={headerType} scrollItem={mainSection} />
                 <Flex mt="0px !important" flex={1}>
                   {children}
                 </Flex>

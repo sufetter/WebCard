@@ -4,6 +4,8 @@ import {Flex, Box} from "@chakra-ui/react";
 import Overview from "../../../components/overview";
 import Games from "../../../components/games";
 import GetInTouch from "../../../components/getInTouch";
+import {useRouter} from "next/router";
+import Rooms from "../../../components/rooms";
 
 const LinkItem = ({linksBox, name, def}: any) => {
   const changeActiveLink = (e: any) => {
@@ -43,14 +45,21 @@ const LinkItem = ({linksBox, name, def}: any) => {
   );
 };
 
-const Game = () => {
+const Game = ({component}: any) => {
   const linksBox = useRef<HTMLInputElement>(null);
 
   return (
     <>
       <main>
         <Layout headerType="lkkl">
-          <Flex flex={1} w="100%" h="100%" direction="column" overflowY="auto">
+          <Flex
+            flex={1}
+            minW="1000px"
+            w="100%"
+            h="100%"
+            direction="column"
+            overflowY="auto"
+          >
             <Flex
               h="266px"
               bg=""
@@ -82,7 +91,9 @@ const Game = () => {
                 <LinkItem linksBox={linksBox} name="Tokens" />
               </Flex>
             </Flex>
-            <Overview />
+
+            <Rooms />
+            {/* <Overview /> */}
             <Games />
             <GetInTouch />
           </Flex>
@@ -93,3 +104,11 @@ const Game = () => {
 };
 
 export default Game;
+
+async function getServerSideProps() {
+  //  const router = useRouter();
+  //  const path = router.query;
+  return {
+    props: {}, // will be passed to the page component as props
+  };
+}
