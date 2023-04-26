@@ -78,6 +78,26 @@ const Room = ({name, users, game}: RoomProps) => {
 };
 
 const Rooms = () => {
+  const roomsRender = (number = 1) => {
+    let rooms = [];
+    console.log(number);
+    for (let i = 0; i < number; i++) {
+      rooms.push(
+        <Room
+          name="Aboba"
+          users={[
+            {id: 1, icon: roomsBg.src},
+            {id: 2, icon: roomsBg.src},
+          ]}
+          game={{
+            bet: Math.floor(Math.random() * 100) / 100,
+            value: {icon: ethereum.src},
+          }}
+        />
+      );
+    }
+    return rooms;
+  };
   return (
     <Flex
       w="100%"
@@ -89,7 +109,13 @@ const Rooms = () => {
     >
       <Flex direction="column" flex={1} h="100%">
         <Flex>
-          <Flex w="100%" h="42px" bg={sharedColors.overviewHeaderBg}>
+          <Flex
+            w="100%"
+            h="42px"
+            bg={sharedColors.overviewHeaderBg}
+            borderBottom="1px solid"
+            borderColor={sharedColors.roomsHeaderBorder}
+          >
             <Flex px="20px" w="100%" justify="space-between" align="center">
               <Flex
                 fontSize="14px"
@@ -135,18 +161,10 @@ const Rooms = () => {
           overflowY="auto"
           direction="column"
           gap="15px"
-          maxH="310px"
           h="100%"
           borderRadius="6px"
         >
-          <Room
-            name="Aboba"
-            users={[
-              {id: 1, icon: roomsBg.src},
-              {id: 2, icon: roomsBg.src},
-            ]}
-            game={{bet: 0.5, value: {icon: ethereum.src}}}
-          />
+          {roomsRender(10)}
         </Flex>
       </Flex>
 
