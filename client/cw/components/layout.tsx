@@ -51,41 +51,34 @@ export default function Layout({children, headerType = "main"}: LayoutProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <VStack
-          direction="column"
+        <Flex
           // h="100%"
           w="100%"
           color="white"
           // maxHeight="100vh"
+          direction="row"
+          mt="0px !important"
+          maxW="100vw"
+          overflowX="hidden"
         >
-          <Flex
-            direction="row"
-            w="100%"
-            mt="0px !important"
-            maxW="100vw"
-            overflowX="hidden"
+          <Navbar />
+
+          <VStack
+            bg="#0E1015"
+            maxH="100vh"
+            flex={1}
+            overflowY="auto"
+            ref={mainSection}
           >
-            <Navbar />
-
-            <VStack
-              bg="#0E1015"
-              maxH="100vh"
-              flex={1}
-              overflowY="auto"
-              ref={mainSection}
-            >
-              <Flex direction="column" mt="0px !important" flex={1}>
-                <Header headerType={headerType} scrollItem={mainSection} />
-                <Flex mt="0px !important" flex={1}>
-                  {children}
-                </Flex>
-                <Footer />
+            <Flex direction="column" mt="0px !important" flex={1}>
+              <Header headerType={headerType} scrollItem={mainSection} />
+              <Flex mt="0px !important" flex={1}>
+                {children}
               </Flex>
-            </VStack>
-
-            <Sidebar />
-          </Flex>
-        </VStack>
+              <Footer />
+            </Flex>
+          </VStack>
+        </Flex>
       </main>
     </>
   );

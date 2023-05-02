@@ -12,6 +12,7 @@ import {sharedColors} from "./layout";
 import {useMainStore} from "../store/shared/sharedStore";
 import {shallow} from "zustand/shallow";
 import NavItem from "./navItem";
+import {FaUserAlt} from "react-icons/fa";
 
 const NavbarVariants: Variants = {
   open: {
@@ -57,11 +58,10 @@ const Navbar = () => {
         direction="column"
         align="center"
         h="100%"
-        px="26px"
         justify="space-between"
         width={NavbarOpen ? "240px" : "auto"}
       >
-        <VStack w="100%">
+        <VStack w="100%" px="26px">
           <Flex
             w="100%"
             gap="18px"
@@ -105,16 +105,42 @@ const Navbar = () => {
             <NavItem src={arena} section="Games" desc="Arena" />
           </VStack>
         </VStack>
-        {/* <Flex
-          py="10px"
+        <Flex
+          my="20px"
           w="100%"
           gap="30px"
           fontSize="14px"
           fontWeight="600"
           color={sharedColors.navbarText}
+          boxSize="40px"
+          align="center"
+          justify="center"
         >
-          <NavItem src={games} section="Games" desc="Close" />
-        </Flex> */}
+          <Flex>
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="16" cy="16" r="16" fill="var(--shade6)"></circle>
+              <path
+                fill="rgb(226 228 233)"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8 21.001v-.579C8 18.146 13.33 17 16 17s8 1.146 8 3.422v.579A9.985 9.985 0 0 1 16 25a9.985 9.985 0 0 1-8-3.999ZM16 7c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4Z"
+              ></path>
+            </svg>
+            <Flex
+              position="fixed"
+              boxSize="5px"
+              bg="red"
+              align="flex-end"
+              float="right"
+            ></Flex>
+          </Flex>
+        </Flex>
       </Flex>
     </Flex>
     // </motion.div>

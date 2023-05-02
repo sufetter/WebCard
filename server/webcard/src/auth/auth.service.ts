@@ -8,7 +8,7 @@ import * as pg from 'pg';
 const { Pool } = pg;
 const pool = new Pool({
   user: 'postgres',
-  password: '3552',
+  password: '7755',
   host: 'localhost',
   port: 5432,
   database: 'DbProject',
@@ -26,36 +26,50 @@ export class AuthService {
   //   return user;
   // }
 
-  async signinLocal(userDto: AuthDto) {
-    const user: User | '' = await pool
-      .query(`select * from users where email = $1`, [userDto.email])
+  async signinLocal(userDto: User) {
+    // const user: User | any = await pool
+    //   .query(`select * from userExists($1, $2)`, [
+    //     userDto.email,
+    //     userDto.password,
+    //   ])
+    //   .then((res) => {
+    //     return res.rows[0];
+    //   })
+    //   .catch((err) => console.error('Error executing query', err.stack));
+
+    // throw new UnauthorizedException('User not found');
+    const user: User | any = await pool
+      .query(
+        `select EXISTS (
+         SELECT *
+         FROM users
+         WHERE email = $1
+         AND password = $2
+         )`,
+        [userDto.email, userDto.password],
+      )
       .then((res) => {
-        if (res.rows[0]) {
-          if (res.rows[0].password === userDto.password) {
-            return res.rows[0];
-          } else return;
-        } else return '';
+        return res.rows[0];
       })
       .catch((err) => console.error('Error executing query', err.stack));
-    if (user === '') throw new UnauthorizedException('User not found'); // TODO: write safety exeptions
-    if (!user) throw new UnauthorizedException('Cridentials error');
-    return this.signUser(user.id, user.email, 'user');
+    if (user.userexists == false) return user;
+    return this.signUser(userDto.id, userDto.email, 'user');
   }
 
-  async registerlocal(userDto: AuthDto) {
+  async registerlocal(userDto: User) {
     const user: User | '' = await pool
-      .query(`select * from users where email = $1`, [userDto.email])
+      .query(
+        `call addUser($1,  $2, $3)
+`,
+        [userDto.name, userDto.email, userDto.password],
+      )
       .then((res) => {
-        if (res.rows[0]) {
-          if (res.rows[0].password === userDto.password) {
-            return res.rows[0];
-          } else return;
-        } else return '';
+        return res.rows[0];
       })
       .catch((err) => console.error('Error executing query', err.stack));
-    if (user === '') throw new UnauthorizedException('User not found'); // TODO: write safety exeptions
-    if (!user) throw new UnauthorizedException('Cridentials error');
-    return this.signUser(user.id, user.email, 'user');
+    // if (user === '') throw new UnauthorizedException('User not found'); // TODO: write safety exeptions
+    if (!user) throw new UnauthorizedException('Check Db, somthing went wrong');
+    return this.signUser(userDto.id, userDto.email, 'user');
   }
 
   signUser(userId: number, email: string, type: string) {
