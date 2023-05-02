@@ -5,7 +5,10 @@ import {
 } from '@nestjs/websockets';
 import { MessagesService } from './messages.service';
 import { CreateMessageDto } from './dto/create-message.dto';
-import { WebSocketServer } from '@nestjs/websockets/decorators';
+import {
+  ConnectedSocket,
+  WebSocketServer,
+} from '@nestjs/websockets/decorators';
 import { Server, Socket } from 'socket.io';
 
 @WebSocketGateway({
@@ -36,11 +39,18 @@ export class MessagesGateway {
     return this.messagesService.remove(id);
   }
   @SubscribeMessage('join')
-  joinRoom() {
-    return this.messagesService.findAll();
+  joinRoom(
+    @MessageBody('name') name: string,
+    @ConnectedSocket() client: Socket,
+  ) {
+    return this.messagesService.indentify(name, client.id);
   }
   @SubscribeMessage('typing')
-  async typing() {
-    return this.messagesService.findAll();
+  async typing(
+    @MessageBody('isTyping') isTyping: boolean,
+    @ConnectedSocket() client: Socket,
+  ) {
+    const name = await this.messagesService.getClientName(client.id);
+    client.broadcast.emit('typing', { name, isTyping });
   }
 }

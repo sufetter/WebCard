@@ -1,6 +1,7 @@
 # compiled output
 /server/webcard/dist
 /server/webcard/node_modules
+/web3/node_modules
 
 # Logs
 logs
@@ -68,3 +69,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+coverage
+coverage.json
+typechain
+typechain-types
+
+#Hardhat files
+cache
+artifacts

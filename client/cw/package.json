@@ -25,6 +25,7 @@
     "react-icons": "^4.8.0",
     "react-parallax-tilt": "^1.7.128",
     "react-query": "^3.39.3",
+    "socket.io-client": "^4.6.1",
     "typescript": "5.0.3",
     "zustand": "^4.3.7"
   }
